@@ -57,10 +57,11 @@ export class ServerManager {
 
         const config = vscode.workspace.getConfiguration('openaiCompatibleServer');
         const port = config.get('port', 3775);
+        let host = config.get('host', '::');
 
-        this.server = this.app.listen(port, () => {
-            this.logger.log(`Server started on port ${port}`);
-            vscode.window.showInformationMessage(`OpenAI compatible server running on http://localhost:${port}`);
+        this.server = this.app.listen(port, host, () => {
+            this.logger.log(`Server started on ${host}:${port}`);
+            vscode.window.showInformationMessage(`OpenAI compatible server running on http://${host}:${port}`);
             this.statusBar.update(true);
         });
 

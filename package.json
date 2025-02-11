@@ -38,6 +38,11 @@
           "default": 3775,
           "description": "Port number for the OpenAI compatible server"
         },
+        "openaiCompatibleServer.host": {
+          "type": "string",
+          "default": "::",
+          "description": "Host IP address for the OpenAI compatible server (use '::' for IPv6 dual-stack support if available)"
+        },
         "openaiCompatibleServer.defaultModel": {
           "type": "string",
           "default": "gpt-4o",
